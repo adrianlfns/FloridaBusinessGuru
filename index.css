@@ -1,0 +1,6 @@
+body{
+  padding-bottom: 56px;  /*accounts for the navbar on the boottom*/
+}
+.footer-margin {
+    height: 100px;
+}
