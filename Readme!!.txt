@@ -1,3 +1,7 @@
+- after cloned, run 
+  
+   npm update
+
 -to test locally 
 
    npm run dev 
