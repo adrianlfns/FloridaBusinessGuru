@@ -4,6 +4,7 @@
     "@huggingface/inference": "2.6.6",
     "@langchain/community": "0.0.39",
     "@supabase/supabase-js": "2.39.8",
+    "bootstrap-icons": "^1.11.3",
     "dotenv": "^16.4.5",
     "http-server": "^14.1.1",
     "langchain": "^0.1.28"
