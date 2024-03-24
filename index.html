@@ -13,7 +13,7 @@
         <div class="container-fluid"> 
             <div class="input-group">           
                 <textarea type="text" class="form-control" id="txtQuestion"></textarea>
-                <button class="btn btn-primary " type="button" id="button-addon1">
+                <button class="btn btn-primary" type="button" id="cmdQuestionSubmit" disabled>
                     <i class="bi bi-send"></i>
                 </button>
             </div>           
@@ -24,7 +24,7 @@
     <section>
         <div class="container py-5">      
           <div class="row">     
-              <ul class="list-unstyled">
+              <ul class="list-unstyled" id="chatList">
 
                 <li class="mb-2">
                     <div class="card"> 
@@ -97,9 +97,17 @@
                       </div>
                     </div>
                   </li>
-                 
-              
-              </ul>      
+              </ul> 
+              <div id="loaderIndicator" style="display:none">
+                <div class="d-flex flex-row-reverse" >
+                  <div class="spinner-grow spinner-grow-sm text-primary" role="status">
+                  </div>
+                  <div class="spinner-grow spinner-grow-sm text-secondary" role="status">
+                  </div>
+                  <div class="spinner-grow spinner-grow-sm text-success" role="status">
+                  </div>
+                </div>
+              </div>                    
           </div>      
         </div>
       </section>
@@ -109,14 +117,92 @@
 
         <script type="module" src="index.js"></script>
         <script>
-              document.getElementById("txtQuestion").addEventListener("keypress", function(e){
+
+              var oQuestionText = document.getElementById("txtQuestion");
+              var oQuestionBtn = document.getElementById("cmdQuestionSubmit");
+              var oChatList = document.getElementById("chatList");
+                 
+              function ScrollToBottom(){
+                const scrollingElement = (document.scrollingElement || document.body);
+                scrollingElement.scrollTop = scrollingElement.scrollHeight; 
+              }
+
+              function SetSubmitQuestionDisabled(){ 
+                oQuestionText.setAttribute("disabled", true);
+                oQuestionText.setAttribute("editable", false); 
+                oQuestionBtn.setAttribute("disabled", true);
+              }
+
+              function SetSubmitQuestionEnabled(){ 
+                oQuestionText.removeAttribute("disabled");
+                oQuestionText.setAttribute("editable", true);
+                oQuestionBtn.removeAttribute("disabled");
+              }
+
+              function ShowLoader(){
+                var oLoaderIndicatro =  document.getElementById("loaderIndicator");
+                oLoaderIndicatro.style.display = "";
+              }
+
+              function HideLoader(){
+                var oLoaderIndicatro =  document.getElementById("loaderIndicator");
+                oLoaderIndicatro.style.display= "none";
+              }
+
+              async function SubmitQuery(){
+                try{
+                  ScrollToBottom();  
+                  SetSubmitQuestionDisabled();
+                  ShowLoader();
+
+
+                  await new Promise(r => setTimeout(r, 2000));
+
+                  
+                }catch (error) {
+                  console.error(error); 
+                }
+                finally
+                {
+                  oQuestionText.value = "";
+                  SetSubmitQuestionEnabled();
+                  HideLoader();
+                }               
+              }
+
+              oQuestionText.addEventListener("keyup", function(e){
+                //validates that there is text 
+                if (oQuestionText.value.trim() == "")
+                {
+                  oQuestionBtn.setAttribute("disabled", true);
+                }
+                else
+                {
+                  oQuestionBtn.removeAttribute("disabled");
+                }                
+              });
+
+              oQuestionText.addEventListener("keypress", function(e){
+                if (oQuestionText.value == "")
+                {
+                  oQuestionBtn.setAttribute("disabled", true);
+                }
+                else
+                {
+                  oQuestionBtn.removeAttribute("disabled");
+                }
                 if(e.key === 'Enter'){
-                   e.preventDefault();    
-                   
-                   const scrollingElement = (document.scrollingElement || document.body);
-                   scrollingElement.scrollTop = scrollingElement.scrollHeight; 
+                   e.preventDefault();  
+                   SubmitQuery();  
                 }
               });
+
+              oQuestionBtn.addEventListener("click",function(e){
+                SubmitQuery();
+              })
+
+              
+
         </script>
     </body>
 </html>
