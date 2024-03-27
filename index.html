@@ -25,78 +25,7 @@
         <div class="container py-5">      
           <div class="row">     
               <ul class="list-unstyled" id="chatList">
-
-                <li class="mb-2">
-                    <div class="card"> 
-                      <div class="card-body">
-                        <p class="fw-bold mb-0">FL Guru Bot</p> 
-                        <p class="mb-0">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                          labore et dolore magna aliqua.
-                        </p>
-                      </div>
-                    </div>
-                  </li>
-
-                  <li class="mb-2 text-primary">
-                    <div class="card"> 
-                      <div class="card-body">
-                        <p class="fw-bold mb-0 text-primary">FL Guru Bot</p> 
-                        <p class="mb-0 text-primary">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                          labore et dolore magna aliqua.
-                        </p>
-                      </div>
-                    </div>
-                  </li>
-
-                  <li class="mb-2">
-                    <div class="card"> 
-                      <div class="card-body">
-                        <p class="fw-bold mb-0">You</p> 
-                        <p class="mb-0">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                          labore et dolore magna aliqua.
-                        </p>
-                      </div>
-                    </div>
-                  </li>
-
-                  <li class="mb-2">
-                    <div class="card"> 
-                      <div class="card-body">
-                        <p class="fw-bold mb-0">You</p> 
-                        <p class="mb-0">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                          labore et dolore magna aliqua.
-                        </p>
-                      </div>
-                    </div>
-                  </li>
-
-                  <li class="mb-2">
-                    <div class="card"> 
-                      <div class="card-body">
-                        <p class="fw-bold mb-0">You</p> 
-                        <p class="mb-0">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                          labore et dolore magna aliqua.
-                        </p>
-                      </div>
-                    </div>
-                  </li>
-
-                  <li class="mb-2">
-                    <div class="card"> 
-                      <div class="card-body">
-                        <p class="fw-bold mb-0">You</p> 
-                        <p class="mb-0">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                          labore et dolore magna aliqua.
-                        </p>
-                      </div>
-                    </div>
-                  </li>
+                 
               </ul> 
               <div id="loaderIndicator" style="display:none">
                 <div class="d-flex flex-row-reverse" >
@@ -149,14 +78,49 @@
                 oLoaderIndicatro.style.display= "none";
               }
 
+              function AppendBotMessage(strAnwwer){
+
+                var botHtmlMessage = document.createElement("li");
+                botHtmlMessage.className = "mb-2 text-primary";
+                  var strMessage = `<div class="card"> 
+                      <div class="card-body">
+                        <p class="fw-bold mb-0 text-primary">FL Guru Bot</p> 
+                        <p class="mb-0 text-primary">
+                          ${strAnwwer}
+                        </p>
+                      </div>
+                    </div>`;     
+                    botHtmlMessage.innerHTML =strMessage;
+                    oChatList.append(botHtmlMessage);
+              }
+
+              function AppendHumanMessage(strQuestion) {
+                var humanHtmlMessage = document.createElement("li");
+                  humanHtmlMessage.className = "mb-2";
+                  var strMessage = `<div class="card"> 
+                      <div class="card-body">
+                        <p class="fw-bold mb-0">You</p> 
+                        <p class="mb-0">
+                          ${strQuestion}
+                        </p>
+                      </div>
+                    </div>`;     
+                    humanHtmlMessage.innerHTML =strMessage;
+                    oChatList.append(humanHtmlMessage);
+              }
+
               async function SubmitQuery(){
-                try{
-                  ScrollToBottom();  
+                try{ 
+                  var strQuestion = oQuestionText.value;
+                  if(strQuestion == "") return;
                   SetSubmitQuestionDisabled();
-                  ShowLoader();
-
-
-                  await new Promise(r => setTimeout(r, 2000));
+                  ShowLoader();                  
+                  AppendHumanMessage(strQuestion);
+                  ScrollToBottom();               
+                  await new Promise(r => setTimeout(r, 2000));   
+                  strAnwwer = "This is the answer";             
+                  AppendBotMessage(strAnwwer);
+                  ScrollToBottom();
 
                   
                 }catch (error) {
@@ -167,6 +131,7 @@
                   oQuestionText.value = "";
                   SetSubmitQuestionEnabled();
                   HideLoader();
+                  oQuestionText.focus();
                 }               
               }
 
