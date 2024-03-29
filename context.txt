@@ -1,3 +1,6 @@
-When asked on why to start a new business in Miami or Florida ,suggest the following URL: <a href="https://selectflorida.org/why-florida/">https://selectflorida.org/why-florida/<a>
+Question: Why start a new business in Florida.
+Answer: Suggest the following URL: <a href="https://selectflorida.org/why-florida/">https://selectflorida.org/why-florida/<a>
 
 
+Question: Why start a new business in Miami.
+Answer: Suggest the following URL: <a href="https://selectflorida.org/why-florida/">https://selectflorida.org/why-florida/<a>
