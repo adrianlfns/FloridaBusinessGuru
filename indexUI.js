@@ -11,27 +11,30 @@ function ScrollToBottom(){
   scrollingElement.scrollTop = scrollingElement.scrollHeight; 
 }
 
-function SetSubmitQuestionDisabled(){ 
+export function SetSubmitQuestionDisabled(){ 
   oQuestionText.setAttribute("disabled", true);
   oQuestionText.setAttribute("editable", false); 
   oQuestionBtn.setAttribute("disabled", true);
 }
 
-function SetSubmitQuestionEnabled(){ 
+export function SetSubmitQuestionEnabled(){ 
   oQuestionText.removeAttribute("disabled");
   oQuestionText.setAttribute("editable", true);
   oQuestionBtn.removeAttribute("disabled");
 }
 
-function ShowLoader(){
+export function ShowLoader(){
   var oLoaderIndicatro =  document.getElementById("loaderIndicator");
   oLoaderIndicatro.style.display = "";
 }
 
-function HideLoader(){
+export function HideLoader(){
   var oLoaderIndicatro =  document.getElementById("loaderIndicator");
   oLoaderIndicatro.style.display= "none";
 }
+
+window.HideLoader = HideLoader;
+window.SetSubmitQuestionEnabled = SetSubmitQuestionEnabled;
 
 function AppendBotMessage(strAnwwer){
 

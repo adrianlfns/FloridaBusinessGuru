@@ -14,7 +14,7 @@
     <nav class="navbar fixed-bottom navbar-expand-lg bg-secondary navbar-dark ">   
         <div class="container-fluid"> 
             <div class="input-group">           
-                <textarea type="text" class="form-control" id="txtQuestion"></textarea>
+                <textarea type="text" class="form-control" id="txtQuestion" disabled></textarea>
                 <button class="btn btn-primary" type="button" id="cmdQuestionSubmit" disabled>
                     <i class="bi bi-send"></i>
                 </button>
@@ -29,7 +29,7 @@
               <ul class="list-unstyled" id="chatList">
                  
               </ul> 
-              <div id="loaderIndicator" style="display:none">
+              <div id="loaderIndicator">
                 <div class="d-flex flex-row-reverse" >
                   <div class="spinner-grow spinner-grow-sm text-primary" role="status">
                   </div>
@@ -43,6 +43,10 @@
         </div>
       </section> 
         <script type="module" src="index.js"></script>
-        <script type="module" src="indexUI.js"></script> 
+        <script type="module"> 
+          import { SetSubmitQuestionEnabled, HideLoader } from "./indexUI.js";  
+          SetSubmitQuestionEnabled();
+          HideLoader();
+        </script>
     </body>
 </html>
