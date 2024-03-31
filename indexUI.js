@@ -40,8 +40,7 @@ export function HideLoader(){
 window.HideLoader = HideLoader;
 window.SetSubmitQuestionEnabled = SetSubmitQuestionEnabled;
 
-function AppendBotMessage(strAnwwer){
-
+export function AppendBotMessage(strAnwwer){
   var botHtmlMessage = document.createElement("li");
   botHtmlMessage.className = "mb-2 text-primary";
     var strMessage = `<div class="card"> 
@@ -54,6 +53,7 @@ function AppendBotMessage(strAnwwer){
       </div>`;     
       botHtmlMessage.innerHTML =strMessage;
       oChatList.append(botHtmlMessage);
+
 }
 
 function AppendHumanMessage(strQuestion) {
@@ -92,8 +92,13 @@ async function SubmitQuery(){
     oQuestionText.value = "";
     SetSubmitQuestionEnabled();
     HideLoader();
-    oQuestionText.focus();
+    SetQuestionFocus();
   }               
+}
+
+export function SetQuestionFocus()
+{
+  oQuestionText.focus();
 }
 
 oQuestionText.addEventListener("keyup", function(e){

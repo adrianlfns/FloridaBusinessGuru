@@ -47,7 +47,7 @@
       </section> 
     </body>
     <script type="module"> 
-      import { SetSubmitQuestionEnabled, HideLoader , InnitializeRetriever} from "./indexUI.js"; 
+      import { SetSubmitQuestionEnabled, HideLoader , InnitializeRetriever, SetQuestionFocus, AppendBotMessage} from "./indexUI.js"; 
 
  
 
@@ -66,6 +66,8 @@
         }
         SetSubmitQuestionEnabled();
         HideLoader(); 
+        AppendBotMessage("Hello, my name is FL Guru Bot, I'm here to help you open a new business in Miami-Dade, FL. Feel free to ask me anything. ")
+        SetQuestionFocus();
       })();
 
     
