@@ -24,6 +24,7 @@ import { HuggingFaceInferenceEmbeddings } from "@langchain/community/embeddings/
       "https://raw.githubusercontent.com/adrianlfns/FloridaBusinessGuru/main/context.txt"          
     );
     const rawDocs = await loader.load(); 
+    console.log(rawDocs);
    const textSplitter = new RecursiveCharacterTextSplitter({
       chunkSize: 500,
       chunkOverlap: 0,
