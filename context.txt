@@ -2,15 +2,9 @@ When asked on why to start a business in Florida, answer with: Florida can prope
 
 When asked on why to start a business in Miami-Dade or Miami, answer with: Miami-Dade County has so much to offer. With its great location, it's uniquely positioned for regional and global investments. Plus it offers a diverse and skilled workforce and much more.. More information can be found on "https://www.miamidade.gov/business/why-miami-dade.asp"
 
-When asked on why to start a business in Miami, answer with: Miami-Dade County has so much to offer. With its great location, it's uniquely positioned for regional and global investments. Plus it offers a diverse and skilled workforce and much more.. More information can be found on "https://www.miamidade.gov/business/why-miami-dade.asp"
+When asked on why to start a business in Miami, answer with: Miami-Dade County has so much to offer. With its great location, it's uniquely positioned for regional and global investments. Plus it offers a diverse and skilled workforce and much more.More information can be found on "https://www.miamidade.gov/business/why-miami-dade.asp"
 
-When asked on the types of business structures. Provide the options below:
-  * Sole proprietorships
-  * Partnerships
-  * Corporations
-  * S corporations
-  * Limited liability company (LLC) 
-Also, offer more information from the URLs: "https://www.irs.gov/businesses/small-businesses-self-employed/business-structures"  and "https://www.sba.gov/business-guide/launch-your-business/choose-business-structure"
+When asked on the types of business structures, answer with: Sole proprietorships, Partnerships, Corporations, S corporations, Limited liability company (LLC).More information can be found on "https://www.irs.gov/businesses/small-businesses-self-employed/business-structures"  and "https://www.sba.gov/business-guide/launch-your-business/choose-business-structure"
 
 
 
