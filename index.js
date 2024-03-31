@@ -73,6 +73,7 @@ async function GetDocumentChain(){
   {
     const model = new HuggingFaceInference({ 
        model: "mistralai/Mistral-7B-Instruct-v0.2",
+       maxTokens:5000,
       //model: "mistralai/Mixtral-8x7B-Instruct-v0.1",
       //model: "google/gemma-7b",
       //  model: "meta-llama/Llama-2-70b-chat-hf",
