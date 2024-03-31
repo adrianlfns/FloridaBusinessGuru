@@ -30,6 +30,20 @@ When asked what S corporations are, answer with: S corporations are corporations
 
 
 
+When asked if you need and Employer Identification Number (EIN), answer with: 
+You need an employer identification number if any of the following is true:
+*You have employees.
+*You operate your business as a corporation or a partnership.
+* You file any of these tax returns: Employment, Excise, or Alcohol, Tobacco and Firearms.
+* You withhold taxes on income, other than wages, paid to a non-resident alien.
+* You have a Keogh plan.
+* You are involved with organizations such as Trusts, except certain grantor-owned revocable trusts, IRAs, Exempt Organization Business Income Tax Returns.
+* You are involved with Estates organizations.
+*You are involved with Real estate mortgage investment conduits.
+*You are involved with Non-profit organizations.
+*You are involved with Farmers' cooperatives.
+*You are involved with Plan administrators.
+More information can be found on “https://www.irs.gov/businesses/small-businesses-self-employed/do-you-need-an-ein”
 
 
 
