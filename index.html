@@ -52,7 +52,18 @@
  
 
       (async() =>{
-        await InnitializeRetriever();
+
+        var intTries = 5;
+        var blnInitialized  = false;
+        while (!blnInitialized && intTries > 0)
+        {
+          blnInitialized =  await InnitializeRetriever();
+          intTries--;
+        }
+        if(!blnInitialized)
+        {
+          alert("Unable to initialize the retriever. Please refresh the page.");
+        }
         SetSubmitQuestionEnabled();
         HideLoader(); 
       })();

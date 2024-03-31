@@ -14,32 +14,49 @@ import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { MemoryVectorStore } from "langchain/vectorstores/memory";
 import { createStuffDocumentsChain } from "langchain/chains/combine_documents";
 import { HuggingFaceInferenceEmbeddings } from "@langchain/community/embeddings/hf";
+import { cat } from "@xenova/transformers";
 
   /////////////context load//////////////////// 
   var retriever = null;
 
   export async  function InnitRetriever(){
+    
+    var res = false;
+    try
+    {
 
-    const loader = new CheerioWebBaseLoader(
-      "https://raw.githubusercontent.com/adrianlfns/FloridaBusinessGuru/main/context.txt"          
-    );
-    const rawDocs = await loader.load(); 
-    console.log(rawDocs);
-   const textSplitter = new RecursiveCharacterTextSplitter({
-      chunkSize: 500,
-      chunkOverlap: 0,
-    });
-    const allSplits = await textSplitter.splitDocuments(rawDocs);
-    const embeddings = new HuggingFaceInferenceEmbeddings({
-      apiKey: process.env.HUGGINFACE__API_KEY, // In Node.js defaults to process.env.HUGGINGFACEHUB_API_KEY
-    });
+      const loader = new CheerioWebBaseLoader(
+        "https://raw.githubusercontent.com/adrianlfns/FloridaBusinessGuru/main/context.txt"          
+      );
+      const rawDocs = await loader.load(); 
+   
+      console.log(rawDocs);
+     const textSplitter = new RecursiveCharacterTextSplitter({
+        chunkSize: 500,
+        chunkOverlap: 0,
+      });
+      const allSplits = await textSplitter.splitDocuments(rawDocs);
+  
+  
+      const embeddings = new HuggingFaceInferenceEmbeddings({
+        apiKey: process.env.HUGGINFACE__API_KEY, // In Node.js defaults to process.env.HUGGINGFACEHUB_API_KEY
+      });
+  
+     // const embeddings = new TensorFlowEmbeddings();
+      const vectorstore = await MemoryVectorStore.fromDocuments(
+        allSplits,   embeddings
+      );
+       retriever = vectorstore.asRetriever(4);
+       res = true;
 
-   // const embeddings = new TensorFlowEmbeddings();
-    const vectorstore = await MemoryVectorStore.fromDocuments(
-      allSplits,   embeddings
-    );
-     retriever = vectorstore.asRetriever(4);
-    return 1;
+    }catch(err)
+    {
+      console.log(err.message);
+    }
+    return res;
+ 
+   
+
   
 
    /* (async() =>{
