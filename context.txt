@@ -53,3 +53,6 @@ When asked for the official site to start a bussiness in Florida, answer with: h
 
 When asked for the best place to locate the bussines in Miami-dade. Offer the URL:  http://www.miamidadesites.com/
 
+
+
+When asked for information on picking a bussiness name. Offer the URL: https://www.sba.gov/business-guide/launch-your-business/choose-your-business-name
