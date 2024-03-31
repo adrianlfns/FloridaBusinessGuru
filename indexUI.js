@@ -1,4 +1,4 @@
-import {answerQuestion} from './index.js'
+import {answerQuestion, InnitRetriever} from './index.js'
 
 
 
@@ -9,6 +9,10 @@ var oChatList = document.getElementById("chatList");
 function ScrollToBottom(){
   const scrollingElement = (document.scrollingElement || document.body);
   scrollingElement.scrollTop = scrollingElement.scrollHeight; 
+}
+
+export async function InnitializeRetriever(){
+  return await InnitRetriever();
 }
 
 export function SetSubmitQuestionDisabled(){ 

@@ -12,9 +12,54 @@ import { ChatMessageHistory } from "langchain/stores/message/in_memory";
 import { CheerioWebBaseLoader } from "langchain/document_loaders/web/cheerio";
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter"; 
 import { MemoryVectorStore } from "langchain/vectorstores/memory";
-import "@tensorflow/tfjs-backend-cpu"; 
-import { TensorFlowEmbeddings } from "@langchain/community/embeddings/tensorflow";
 import { createStuffDocumentsChain } from "langchain/chains/combine_documents";
+import { HuggingFaceInferenceEmbeddings } from "@langchain/community/embeddings/hf";
+
+  /////////////context load//////////////////// 
+  var retriever = null;
+
+  export async  function InnitRetriever(){
+
+    const loader = new CheerioWebBaseLoader(
+      "https://raw.githubusercontent.com/adrianlfns/FloridaBusinessGuru/main/context.txt"          
+    );
+    const rawDocs = await loader.load(); 
+   const textSplitter = new RecursiveCharacterTextSplitter({
+      chunkSize: 500,
+      chunkOverlap: 0,
+    });
+    const allSplits = await textSplitter.splitDocuments(rawDocs);
+    const embeddings = new HuggingFaceInferenceEmbeddings({
+      apiKey: process.env.HUGGINFACE__API_KEY, // In Node.js defaults to process.env.HUGGINGFACEHUB_API_KEY
+    });
+
+   // const embeddings = new TensorFlowEmbeddings();
+    const vectorstore = await MemoryVectorStore.fromDocuments(
+      allSplits,   embeddings
+    );
+     retriever = vectorstore.asRetriever(4);
+    return 1;
+  
+
+   /* (async() =>{
+    const loader = new CheerioWebBaseLoader(
+      "https://raw.githubusercontent.com/adrianlfns/FloridaBusinessGuru/main/context.txt"          
+    );
+    const rawDocs = await loader.load(); 
+    const textSplitter = new RecursiveCharacterTextSplitter({
+      chunkOverlap: 0,
+    });
+    const allSplits = await textSplitter.splitDocuments(rawDocs);
+    const embeddings = new TensorFlowEmbeddings();
+    const vectorstore = await MemoryVectorStore.fromDocuments(
+      allSplits ,   embeddings
+    );
+    retriever = vectorstore.asRetriever(4);
+    alert("done");
+  })();*/
+};
+
+
 
 //////////////////History definition////////////
 const msgHistory = new ChatMessageHistory(); 
@@ -58,38 +103,8 @@ async function GetDocumentChain(){
 }
 
 
- var retriever = null;
- async function GetRetriever()
- {
-    if(retriever === null)
-    {
-        /////////////context load//////////////////// 
-        const loader = new CheerioWebBaseLoader(
-          "https://raw.githubusercontent.com/adrianlfns/FloridaBusinessGuru/main/context.txt"          
-        ); //"https://raw.githubusercontent.com/adrianlfns/FloridaBusinessGuru/main/context.txt"
-    //  "https://drive.usercontent.google.com/download?id=1bX9PCp3n6eKKSn_T4jRHS1iz1kCJ60KY&export=download"
-        const rawDocs = await loader.load();
 
-
-
-        ///////////Text splittter and vector db config////////////////////
-
-        const embeddings = new TensorFlowEmbeddings();
-
-
-        const textSplitter = new RecursiveCharacterTextSplitter({
-          chunkOverlap: 0,
-        });
-        const allSplits = await textSplitter.splitDocuments(rawDocs);
-
-        const vectorstore = await MemoryVectorStore.fromDocuments(
-          allSplits ,   embeddings
-        );
-        retriever = vectorstore.asRetriever(4);
-    }  
-    return retriever;
- }
-
+ 
 
 /////////////chain//////////////////
 //const chain = prompt.pipe(model);
@@ -97,12 +112,6 @@ async function GetDocumentChain(){
 
 
 export async function answerQuestion(question){ 
-  var retriever = await GetRetriever();
-  if(retriever == null )
-  {
-    alert("Unable to obtain the retriever");
-    return;
-  }
   const docs = await retriever.invoke(question);
   console.log(docs);
 
