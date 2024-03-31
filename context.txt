@@ -56,3 +56,28 @@ When asked for the best place to locate the bussines in Miami-dade. Offer the UR
 
 
 When asked for information on picking a bussiness name. Offer the URL: https://www.sba.gov/business-guide/launch-your-business/choose-your-business-name
+
+
+
+When asked for the fees for filing a bussiness in Florida. Offer the following URL: https://dos.fl.gov/sunbiz/forms/fees/
+
+
+
+When asked for the minimum wage in Florida, answer with: The Basic Minimum Rate (per hour): $12.00 in Florida. The minimum wage is adjusted annually based on a set formula. The Florida minimum wage is scheduled to increase by $1.00 every September 30th until reaching $15.00 on September 30, 2026. More information can be found on: https://www.dol.gov/agencies/whd/minimum-wage/state#fl
+
+
+
+When asked for information on business license in florida. Offer the following URL: http://www.myfloridalicense.com/dbpr/
+
+
+
+When asked where to find assistance for small bussinesss. Offer the following URL: https://www.sba.gov/local-assistance 
+
+
+
+When asked for resources on market research. Offer the following URL: https://www.sba.gov/business-guide/plan-your-business/market-research-competitive-analysis#id-free-small-business-data-and-trends 
+
+
+
+
+When asked how to fund your bussiness. Offer the following URL: https://www.sba.gov/business-guide/plan-your-business/fund-your-business
