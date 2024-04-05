@@ -47,19 +47,19 @@ More information can be found on “https://www.irs.gov/businesses/small-busines
 
 
 
-When asked for the official site to start a bussiness in Florida, answer with: https://dos.fl.gov/sunbiz/start-business/
+When asked for the official site to start a business in Florida, answer with: https://dos.fl.gov/sunbiz/start-business/
 
 
 
-When asked for the best place to locate the bussines in Miami-dade. Offer the URL:  http://www.miamidadesites.com/
+When asked for the best place to locate the business in Miami-dade. Offer the URL:  http://www.miamidadesites.com/
 
 
 
-When asked for information on picking a bussiness name. Offer the URL: https://www.sba.gov/business-guide/launch-your-business/choose-your-business-name
+When asked for information on picking a business name. Offer the URL: https://www.sba.gov/business-guide/launch-your-business/choose-your-business-name
 
 
 
-When asked for the fees for filing a bussiness in Florida. Offer the following URL: https://dos.fl.gov/sunbiz/forms/fees/
+When asked for the fees for filing a business in Florida. Offer the following URL: https://dos.fl.gov/sunbiz/forms/fees/
 
 
 
@@ -71,7 +71,7 @@ When asked for information on business license in florida. Offer the following U
 
 
 
-When asked where to find assistance for small bussinesss. Offer the following URL: https://www.sba.gov/local-assistance 
+When asked where to find assistance for small business. Offer the following URL: https://www.sba.gov/local-assistance 
 
 
 
@@ -80,4 +80,4 @@ When asked for resources on market research. Offer the following URL: https://ww
 
 
 
-When asked how to fund your bussiness. Offer the following URL: https://www.sba.gov/business-guide/plan-your-business/fund-your-business
+When asked how to fund your business. Offer the following URL: https://www.sba.gov/business-guide/plan-your-business/fund-your-business
